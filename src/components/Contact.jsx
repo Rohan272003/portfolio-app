@@ -41,7 +41,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center py-24 z-10 px-6 sm:px-12">
+    <section id="contact" className="relative w-full min-h-screen flex items-center justify-center py-24 z-10 px-6 sm:px-12">
       <div className="w-full max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
