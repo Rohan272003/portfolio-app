@@ -1,74 +1,162 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink, Code2, FolderGit2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Projects() {
   const projects = [
     {
-      title: "DAR jewellery website",
-      description: "A futuristic Next.js portfolio marking my grand entrance into web development. Not bad for day one!",
-      tech: ["Next.js", "Tailwind CSS"],
-      link: "https://darjewellery.com/"
-     },
-    {
-      title: "Click & Collect",
-      description: "The absolute classic. My very first interaction rendering text onto a screen using modern web technologies.",
-      tech: ["Next.js", "Tailwind CSS"],
-      link: "https://www.darjewellery.com/GoldPlan/BookMyGolds"
+      id: "01",
+      title: "DAR Jewellery",
+      description:
+        "A modern jewellery platform built with Next.js, focused on performance, responsive design, SEO optimization, and a premium shopping experience.",
+      tech: ["Next.js", "React.js", "Tailwind CSS", "SEO"],
+      image: "/DAR.png",
+      link: "https://darjewellery.com/",
     },
     {
-      title: "Book my Gold",
-      description: "A thrilling CSS experiment where I attempted (and succeeded) at perfectly centering a block on the screen.",
-      tech: ["Next.js", "Tailwind CSS"],
-      link: "https://www.darjewellery.com/clickAndCollect/clickAndCollect"
-    }
+      id: "02",
+      title: "Click & Collect",
+      description:
+        "A customer pickup and reservation workflow allowing users to browse products and reserve them seamlessly through a responsive interface.",
+      tech: ["Next.js", "Tailwind CSS", "Axios", "REST API"],
+      image: "/ClickandCollect.png",
+      link:
+        "https://www.darjewellery.com/clickAndCollect/clickAndCollect",
+    },
+    {
+      id: "03",
+      title: "Book My Gold",
+      description:
+        "A digital gold booking platform that enables users to reserve and manage gold plans through an intuitive and user-friendly experience.",
+      tech: ["React.js", "Next.js", "Tailwind CSS"],
+      image: "/BookMyGold.png",
+      link:
+        "https://www.darjewellery.com/GoldPlan/BookMyGolds",
+    },
   ];
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-center py-24 z-10 px-6 sm:px-12">
-      <div className="w-full max-w-7xl">
+    <section className="relative overflow-hidden py-32">
+      {/* Background Glow */}
+
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-20 left-20 h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-[180px]" />
+
+        <div className="absolute bottom-20 right-20 h-[500px] w-[500px] rounded-full bg-purple-500/10 blur-[180px]" />
+      </div>
+
+      <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32">
+        {/* Header */}
+
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-28 text-center"
         >
-          <h2 className="text-4xl sm:text-5xl font-extrabold font-sans tracking-tight mb-4 text-slate-900 dark:text-white">
-            Recent <span className="text-gradient">Projects</span>
+          <span className="mb-6 inline-block rounded-full border border-cyan-500/20 bg-cyan-500/5 px-5 py-2 text-sm font-mono text-cyan-400">
+            SELECTED WORK
+          </span>
+
+          <h2 className="mb-6 text-5xl font-black tracking-tight md:text-7xl">
+            Featured
+            <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+              Projects
+            </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full" />
+
+          <p className="mx-auto max-w-3xl text-lg text-slate-600 dark:text-slate-400">
+            A collection of projects focused on performance,
+            scalability, and delivering exceptional user
+            experiences.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Projects */}
+
+        <div className="space-y-32">
           {projects.map((project, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
+              key={project.id}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
-              className="glass-card p-8 group flex flex-col h-full border border-slate-200 dark:border-white/10 hover:border-cyan-400 dark:hover:border-cyan-500/50 transition-all duration-300 shadow-sm dark:shadow-[0_0_0_transparent] hover:shadow-lg dark:hover:shadow-[0_15px_30px_rgba(0,240,255,0.1)]"
+              transition={{ duration: 0.7 }}
+              className={`grid items-center gap-14 lg:grid-cols-2 ${
+                index % 2 !== 0
+                  ? "lg:[&>*:first-child]:order-2"
+                  : ""
+              }`}
             >
-              <div className="flex justify-between items-center mb-6">
-                <FolderGit2 className="w-10 h-10 text-cyan-600 dark:text-cyan-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors" />
-                <div className="flex gap-3">
-                  {/* <a href={project.github} className="text-slate-500 hover:text-slate-900 dark:text-gray-400 dark:hover:text-white transition-colors"><Code2 className="w-6 h-6" /></a> */}
-                  <a href={project.link} className="text-slate-500 hover:text-cyan-600 dark:text-gray-400 dark:hover:text-cyan-400 transition-colors"><ExternalLink className="w-6 h-6" /></a>
+              {/* Browser Mockup */}
+
+              <motion.div
+                whileHover={{ y: -8 }}
+                className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl"
+              >
+                {/* Browser Bar */}
+
+                <div className="flex h-12 items-center gap-2 border-b border-white/10 px-5">
+                  <div className="h-3 w-3 rounded-full bg-red-500" />
+                  <div className="h-3 w-3 rounded-full bg-yellow-500" />
+                  <div className="h-3 w-3 rounded-full bg-green-500" />
                 </div>
-              </div>
-              
-              <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">{project.title}</h3>
-              <p className="text-slate-600 dark:text-gray-400 mb-6 flex-grow leading-relaxed">{project.description}</p>
-              
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {project.tech.map((tech, i) => (
-                  <span key={i} className="text-xs font-mono text-cyan-700 bg-cyan-100 dark:text-cyan-300 dark:bg-cyan-950/40 px-3 py-1 rounded-full border border-cyan-200 dark:border-cyan-500/20">
-                    {tech}
-                  </span>
-                ))}
+
+                {/* Screenshot */}
+
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition duration-700 group-hover:scale-105"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Content */}
+
+              <div>
+                <span className="font-mono text-cyan-400">
+                  {project.id}
+                </span>
+
+                <h3 className="mt-4 mb-6 text-4xl font-black md:text-5xl">
+                  {project.title}
+                </h3>
+
+                <p className="mb-8 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+                  {project.description}
+                </p>
+
+                {/* Tech Stack */}
+
+                <div className="mb-10 flex flex-wrap gap-3">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-cyan-500/20 bg-cyan-500/5 px-4 py-2 text-sm text-cyan-400"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Button */}
+
+                <motion.a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ x: 5 }}
+                  className="inline-flex items-center gap-3 text-lg font-medium text-cyan-400 transition"
+                >
+                  View Live Project
+
+                  <ArrowUpRight size={22} />
+                </motion.a>
               </div>
             </motion.div>
           ))}
