@@ -16,31 +16,43 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 export const metadata = {
   metadataBase: new URL("https://rohan-codes-portfolio.vercel.app"),
   title: {
-    default: "R Rohan | Frontend Developer Portfolio",
+    default: "R Rohan | React.js & Next.js Frontend Developer in India",
     template: "%s | R Rohan",
   },
   description:
-    "Frontend developer portfolio of R Rohan — building responsive, modern, and high-performance web experiences with React.js, Next.js, and UI-focused design.",
+    "R Rohan is a React.js and Next.js frontend developer in India building fast, responsive, SEO-friendly web applications and modern UI experiences.",
+  abstract:
+    "React.js and Next.js frontend developer portfolio for R Rohan, focused on fast, responsive, SEO-friendly web experiences.",
+  category: "technology",
   applicationName: "R Rohan Portfolio",
   keywords: [
     "R Rohan",
     "Frontend Developer",
+    "React Developer",
     "React.js Developer",
     "Next.js Developer",
-    "Portfolio",
+    "Frontend Developer in India",
+    "JavaScript Developer",
+    "UI Developer",
+    "React.js Portfolio",
+    "Next.js Portfolio",
     "Web Developer India",
-    "Modern UI Developer",
+    "SEO Friendly Web Developer",
+    "Responsive Web Design",
+    "Frontend Engineer",
   ],
-  authors: [{ name: "R Rohan" }],
+  authors: [
+    { name: "R Rohan", url: "https://rohan-codes-portfolio.vercel.app" },
+  ],
   creator: "R Rohan",
   publisher: "R Rohan",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "R Rohan | Frontend Developer Portfolio",
+    title: "R Rohan | React.js & Next.js Frontend Developer in India",
     description:
-      "Explore the portfolio of R Rohan, a frontend developer creating responsive, high-performance web experiences with React.js and Next.js.",
+      "Explore the portfolio of R Rohan, a frontend developer creating fast, responsive, and SEO-focused digital experiences with React.js and Next.js.",
     url: "https://rohan-codes-portfolio.vercel.app",
     siteName: "R Rohan Portfolio",
     locale: "en_US",
@@ -56,9 +68,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "R Rohan | Frontend Developer Portfolio",
+    title: "R Rohan | React.js & Next.js Frontend Developer in India",
     description:
-      "Modern frontend developer portfolio for R Rohan, specializing in React.js and Next.js",
+      "Frontend developer portfolio for R Rohan, specializing in React.js, Next.js, and performance-first UI development.",
     images: ["/og-image.svg"],
   },
   robots: {
@@ -72,6 +84,10 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
+};
+
+export const viewport = {
+  themeColor: "#050505",
 };
 
 export default function RootLayout({ children }) {

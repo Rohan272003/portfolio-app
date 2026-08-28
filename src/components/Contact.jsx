@@ -27,8 +27,8 @@ export default function Contact() {
         setStatus("success");
         setTimeout(() => {
           setStatus("idle");
-          form.reset(); // Reset form
-          window.location.reload(); // Reload
+          form.reset();
+          window.location.reload();
         }, 1500);
       } else {
         setStatus("idle");
@@ -41,95 +41,174 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative w-full min-h-screen flex items-center justify-center py-24 z-10 px-6 sm:px-12">
-      <div className="w-full max-w-5xl">
+    <section
+      id="contact"
+      className="relative z-10 flex min-h-screen w-full items-center justify-center px-6 py-24 sm:px-12"
+    >
+      <div className="w-full max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
-          <h2 className="text-4xl sm:text-5xl font-extrabold font-sans tracking-tight mb-4 text-slate-900 dark:text-white">
+          <span className="mb-5 inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/5 px-5 py-2 text-xs font-mono uppercase tracking-[0.32em] text-cyan-500">
+            Contact
+          </span>
+          <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
             Open a <span className="text-gradient">Channel</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full" />
+          <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500" />
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 bg-white/70 dark:bg-[#141419]/60 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-6 sm:p-10 shadow-sm dark:shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-          
-          <motion.div 
+        <div className="grid grid-cols-1 gap-10 rounded-[2rem] border border-slate-200/80 bg-white/70 p-5 shadow-[0_20px_80px_rgba(15,23,42,0.07)] backdrop-blur-xl dark:border-white/10 dark:bg-[#141419]/70 dark:shadow-[0_0_70px_rgba(0,0,0,0.55)] lg:grid-cols-5 lg:p-8 xl:p-10">
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-2 flex flex-col justify-center"
+            className="flex flex-col justify-center lg:col-span-2"
           >
-            <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Let's Connect</h3>
-            <p className="text-slate-600 dark:text-gray-400 mb-10 leading-relaxed text-lg">
-              Whether you have a project in mind, want to discuss cutting-edge architectures, or just want to say hi. I am always open to new connections.
+            <h3 className="mb-5 text-3xl font-bold text-slate-900 dark:text-white">
+              Let&apos;s Connect
+            </h3>
+            <p className="mb-8 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+              Whether you have a project in mind, want to discuss cutting-edge
+              architectures, or just want to say hi — I&apos;m always open to
+              new connections.
             </p>
-            
-            <div className="space-y-6">
-              <div className="flex items-center gap-4 text-slate-700 dark:text-gray-300">
-                <div className="p-3 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg">
-                  <Mail className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+
+            <div className="space-y-4">
+              {[
+                {
+                  icon: Mail,
+                  text: "amazingrohan003@gmail.com",
+                  tone: "cyan",
+                },
+                {
+                  icon: MapPin,
+                  text: "Kalingarayan palayam, Erode, Tamil Nadu, India - 638316",
+                  tone: "violet",
+                },
+                {
+                  icon: Terminal,
+                  text: "Status: Online",
+                  tone: "cyan",
+                },
+              ].map(({ icon: Icon, text, tone }) => (
+                <div
+                  key={text}
+                  className="flex items-center gap-4 rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-300/60 hover:shadow-[0_15px_35px_rgba(34,211,238,0.08)] dark:border-white/10 dark:bg-black/20 dark:hover:border-cyan-500/40"
+                >
+                  <div
+                    className={`flex h-12 w-12 items-center justify-center rounded-xl border ${
+                      tone === "cyan"
+                        ? "border-cyan-500/20 bg-cyan-500/5 text-cyan-600 dark:border-cyan-500/20 dark:bg-cyan-500/10 dark:text-cyan-400"
+                        : "border-violet-500/20 bg-violet-500/5 text-violet-600 dark:border-violet-500/20 dark:bg-violet-500/10 dark:text-violet-400"
+                    }`}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <span className="text-sm font-mono text-slate-700 dark:text-slate-200 sm:text-base">
+                    {text}
+                  </span>
                 </div>
-                <span className="font-mono text-sm sm:text-base">amazingrohan003@gmail.com</span>
-              </div>
-              <div className="flex items-center gap-4 text-slate-700 dark:text-gray-300">
-                <div className="p-3 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg">
-                  <MapPin className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                </div>
-                <span className="font-mono text-sm sm:text-base break-words">Kalingarayan palayam , Erode , Tamil Nadu , India - 638316</span>
-              </div>
-              <div className="flex items-center gap-4 text-slate-700 dark:text-gray-300">
-                <div className="p-3 bg-slate-100 dark:bg-white/5 border border-cyan-400 dark:border-cyan-500/30 rounded-lg shadow-sm dark:shadow-[0_0_15px_rgba(0,240,255,0.1)]">
-                  <Terminal className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
-                </div>
-                <span className="font-mono text-sm sm:text-base">Status: Online</span>
-              </div>
+              ))}
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="lg:col-span-3"
           >
-            <form action="https://formspree.io/f/mvzvbarg" method="POST" onSubmit={handleSubmit} className="flex flex-col gap-6">
-               <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="text-sm font-mono text-cyan-700 dark:text-cyan-400 uppercase tracking-widest">Identifier</label>
-                  <input required type="text" id="name" name="name" className="bg-slate-50 dark:bg-black/50 border border-slate-200 dark:border-white/10 rounded-lg p-3 text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500 transition-colors" placeholder="Good Name" />
-               </div>
-               
-               <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-sm font-mono text-cyan-700 dark:text-cyan-400 uppercase tracking-widest">Return Address</label>
-                  <input required type="email" id="email" name="email" className="bg-slate-50 dark:bg-black/50 border border-slate-200 dark:border-white/10 rounded-lg p-3 text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500 transition-colors" placeholder="email@domain.com" />
-               </div>
+            <form
+              action="https://formspree.io/f/mvzvbarg"
+              method="POST"
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-6 rounded-[1.5rem] border border-slate-200/80 bg-slate-50/80 p-5 shadow-inner shadow-slate-200/40 dark:border-white/10 dark:bg-black/15 dark:shadow-black/20 sm:p-6"
+            >
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="name"
+                  className="text-xs font-mono uppercase tracking-[0.25em] text-cyan-700 dark:text-cyan-400"
+                >
+                  Identifier
+                </label>
+                <input
+                  required
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 dark:border-white/10 dark:bg-slate-950/50 dark:text-white dark:placeholder:text-slate-500"
+                  placeholder="Good Name"
+                />
+              </div>
 
-               <div className="flex flex-col gap-2">
-                  <label htmlFor="message" className="text-sm font-mono text-cyan-700 dark:text-cyan-400 uppercase tracking-widest">Payload</label>
-                  <textarea required id="message" name="message" rows={5} className="bg-slate-50 dark:bg-black/50 border border-slate-200 dark:border-white/10 rounded-lg p-3 text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500 transition-colors resize-none" placeholder="Enter your message sequence here..."></textarea>
-               </div>
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="email"
+                  className="text-xs font-mono uppercase tracking-[0.25em] text-cyan-700 dark:text-cyan-400"
+                >
+                  Return Address
+                </label>
+                <input
+                  required
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 dark:border-white/10 dark:bg-slate-950/50 dark:text-white dark:placeholder:text-slate-500"
+                  placeholder="email@domain.com"
+                />
+              </div>
 
-               <motion.button 
-                  type="submit"
-                  disabled={status !== "idle"}
-                  whileHover={status === "idle" ? { scale: 1.02 } : {}}
-                  whileTap={status === "idle" ? { scale: 0.98 } : {}}
-                  className={`mt-4 w-full py-4 rounded-xl flex items-center justify-center gap-3 font-mono text-sm tracking-widest text-white uppercase transition-all duration-300 border ${
-                    status === "idle" ? "bg-gradient-to-r from-cyan-600 to-purple-600 dark:from-[rgba(0,240,255,0.2)] dark:to-[rgba(176,38,255,0.2)] border-[rgba(0,240,255,0.4)] hover:border-[rgba(0,240,255,0.8)] shadow-md dark:shadow-[0_0_15px_rgba(0,240,255,0.1)] hover:shadow-[0_0_30px_rgba(0,240,255,0.3)]" :
-                    status === "submitting" ? "bg-purple-600/50 dark:bg-purple-500/20 border-purple-500/50 text-purple-100 dark:text-purple-300 cursor-not-allowed" :
-                    "bg-green-600/50 dark:bg-green-500/20 border-green-500/50 text-green-100 dark:text-green-300 cursor-not-allowed"
-                  }`}
-               >
-                  {status === "idle" && <><Send className="w-5 h-5 text-white dark:text-cyan-300" /> Transmit Signal</>}
-                  {status === "submitting" && <><Lock className="w-5 h-5 animate-pulse" /> Encrypting...</>}
-                  {status === "success" && "Transmission Successful!"}
-               </motion.button>
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="message"
+                  className="text-xs font-mono uppercase tracking-[0.25em] text-cyan-700 dark:text-cyan-400"
+                >
+                  Payload
+                </label>
+                <textarea
+                  required
+                  id="message"
+                  name="message"
+                  rows={5}
+                  className="resize-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 dark:border-white/10 dark:bg-slate-950/50 dark:text-white dark:placeholder:text-slate-500"
+                  placeholder="Enter your message sequence here..."
+                />
+              </div>
+
+              <motion.button
+                type="submit"
+                disabled={status !== "idle"}
+                whileHover={status === "idle" ? { scale: 1.02 } : {}}
+                whileTap={status === "idle" ? { scale: 0.98 } : {}}
+                className={`mt-2 w-full rounded-xl border px-6 py-4 text-sm font-mono uppercase tracking-[0.25em] text-white transition-all duration-300 ${
+                  status === "idle"
+                    ? "border-cyan-400/40 bg-gradient-to-r from-cyan-600 to-violet-600 shadow-[0_12px_35px_rgba(34,211,238,0.32)] hover:shadow-[0_18px_40px_rgba(168,85,247,0.28)]"
+                    : status === "submitting"
+                      ? "cursor-not-allowed border-purple-500/50 bg-purple-600/60 text-purple-100"
+                      : "cursor-not-allowed border-emerald-500/50 bg-emerald-600/60 text-emerald-100"
+                }`}
+              >
+                {status === "idle" && (
+                  <span className="flex items-center justify-center gap-3">
+                    <Send className="h-4 w-4" />
+                    Transmit Signal
+                  </span>
+                )}
+                {status === "submitting" && (
+                  <span className="flex items-center justify-center gap-3">
+                    <Lock className="h-4 w-4 animate-pulse" />
+                    Encrypting...
+                  </span>
+                )}
+                {status === "success" && "Transmission Successful!"}
+              </motion.button>
             </form>
           </motion.div>
         </div>

@@ -14,7 +14,7 @@ import {
 
 export default function Hero() {
   const [text, setText] = useState("");
-  const fullText = "Frontend Developer • React.js • Next.js";
+  const fullText = "React.js • Next.js • Frontend Developer";
 
   useEffect(() => {
     let i = 0;
@@ -173,11 +173,15 @@ export default function Hero() {
 
             <h1 className="mb-6 text-6xl font-black leading-none tracking-tight md:text-7xl xl:text-8xl">
               <span className="block text-slate-900 dark:text-white">
-                Frontend
+                R Rohan
               </span>
 
               <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-                Developer
+                React.js & Next.js
+              </span>
+
+              <span className="mt-2 block text-4xl text-slate-700 dark:text-slate-200 md:text-5xl xl:text-6xl">
+                Frontend Developer
               </span>
             </h1>
 
