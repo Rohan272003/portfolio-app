@@ -128,7 +128,7 @@ export default function Hero() {
                   <div className="relative h-full w-full overflow-hidden rounded-full bg-black">
                     <Image
                       src="/Image2.png"
-                      alt="Rohan"
+                      alt="R Rohan - Frontend Developer portrait"
                       fill
                       priority
                       className="object-cover object-top"
@@ -173,11 +173,11 @@ export default function Hero() {
 
             <h1 className="mb-6 text-6xl font-black leading-none tracking-tight md:text-7xl xl:text-8xl">
               <span className="block text-slate-900 dark:text-white">
-                Initialize
+                Frontend
               </span>
 
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-                Portfolio.
+              <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                Developer
               </span>
             </h1>
 
@@ -201,10 +201,10 @@ export default function Hero() {
             {/* Description */}
 
             <p className="mb-10 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-              I craft modern, responsive, and high-performance web
-              applications using React.js, Next.js, TypeScript and Tailwind
-              CSS. Focused on delivering beautiful user experiences and
-              scalable frontend architectures.
+              I craft modern, responsive, and high-performance web applications
+              using React.js, Next.js, TypeScript, and Tailwind CSS. I design
+              clean digital experiences that help brands grow, convert, and
+              stand out online.
             </p>
 
             {/* Socials */}

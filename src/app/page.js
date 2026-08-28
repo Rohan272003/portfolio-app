@@ -11,6 +11,29 @@ import AnimatedBackground from "@/components/AnimatedBackground";
 import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "R Rohan",
+    jobTitle: "Frontend Developer",
+    url: "https://rohan-codes-portfolio.vercel.app",
+    sameAs: [
+      "https://github.com/Rohan272003",
+      "https://www.linkedin.com/in/r-rohan-bbb1232b2",
+    ],
+    knowsAbout: [
+      "React.js",
+      "Next.js",
+      "JavaScript",
+      "TypeScript",
+      "Tailwind CSS",
+      "Frontend Development",
+      "Performance Optimization",
+    ],
+    description:
+      "Frontend developer specializing in modern, responsive, and high-performance web applications using React.js and Next.js.",
+  };
+
   // Global Spotlight Effect
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -22,18 +45,23 @@ export default function Home() {
   }
 
   return (
-    <main 
+    <main
       className="relative min-h-screen overflow-x-hidden selection:bg-purple-500/30 transition-colors duration-500"
       onMouseMove={handleMouseMove}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       <ThemeToggle />
-      
+
       {/* Grid Background Layer */}
       <div className="fixed inset-0 pointer-events-none bg-grid-cyber z-0" />
 
       {/* Background radial gradient mask that fades the grid at the edges */}
       <div className="fixed inset-0 pointer-events-none bg-slate-50 dark:bg-black transition-colors duration-500 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black_100%)] z-0" />
-      
+
       {/* Dynamic Cursor Spotlight that follows mouse globally */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-0 opacity-50"
