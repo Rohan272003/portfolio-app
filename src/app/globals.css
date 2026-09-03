@@ -128,3 +128,13 @@ body {
     transparent
   );
 }
+
+/* ThreeControls styles */
+
+@media (max-width: 640px) {
+  .three-controls {
+    right: 8px;
+    left: 8px;
+    top: 8px;
+  }
+}
