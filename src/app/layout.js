@@ -59,7 +59,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.svg",
+        url: "https://rohan-codes-portfolio.vercel.app/og-image.svg",
         width: 1200,
         height: 630,
         alt: "R Rohan Frontend Developer Portfolio",
@@ -71,7 +71,7 @@ export const metadata = {
     title: "R Rohan | React.js & Next.js Frontend Developer in India",
     description:
       "Frontend developer portfolio for R Rohan, specializing in React.js, Next.js, and performance-first UI development.",
-    images: ["/og-image.svg"],
+    images: ["https://rohan-codes-portfolio.vercel.app/og-image.svg"],
   },
   robots: {
     index: true,
@@ -87,7 +87,12 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#050505",
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#050505" },
+  ],
 };
 
 export default function RootLayout({ children }) {

@@ -127,7 +127,7 @@ export default function Hero() {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 p-1">
                   <div className="relative h-full w-full overflow-hidden rounded-full bg-black">
                     <Image
-                      src="/Image2.png"
+                      src="/Avatar.png"
                       alt="R Rohan - Frontend Developer portrait"
                       fill
                       priority
@@ -235,7 +235,7 @@ export default function Hero() {
 
             <div className="flex flex-wrap gap-4">
               <motion.a
-                href="/Rohan_rajasekar_reactjs_developer.pdf"
+                href="/Rohan_Rajasekar_Frontend_Developer.pdf"
                 download
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}

@@ -28,7 +28,7 @@ export default function About() {
     },
     {
       icon: Rocket,
-      value: "20+",
+      value: "10+",
       label: "Projects Built",
     },
     {

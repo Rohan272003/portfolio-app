@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, MapPin, Mail, Terminal, Lock } from "lucide-react";
+import { Send, MapPin, Mail, Terminal, Lock, Phone } from "lucide-react";
 
 export default function Contact() {
   const [status, setStatus] = useState("idle");
@@ -84,6 +84,11 @@ export default function Contact() {
                 {
                   icon: Mail,
                   text: "amazingrohan003@gmail.com",
+                  tone: "cyan",
+                },
+                {
+                  icon: Phone,
+                  text: "6379934504",
                   tone: "cyan",
                 },
                 {
